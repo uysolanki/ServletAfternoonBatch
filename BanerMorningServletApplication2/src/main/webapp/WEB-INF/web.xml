@@ -1,0 +1,61 @@
+<web-app>
+
+ 	<welcome-file-list>
+        <welcome-file>login.html</welcome-file>
+    </welcome-file-list>
+    
+    <context-param>
+			<param-name>dbname</param-name>
+			<param-value>custombdb</param-value>
+	</context-param>
+		
+     <context-param>
+			<param-name>username</param-name>
+			<param-value>root</param-value>
+	</context-param>
+	
+	 <context-param>
+			<param-name>password</param-name>
+			<param-value>root123</param-value>
+	</context-param>
+    
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>LoginServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<url-pattern>/login</url-pattern>
+		<servlet-name>LoginServlet</servlet-name>
+	
+	</servlet-mapping>
+	
+	
+	<servlet>
+		<init-param>
+			<param-name>drivername</param-name>
+			<param-value>com.jdbc.mysql.Driver</param-value>
+		</init-param>
+		<servlet-name>HomepageServlet</servlet-name>
+		<servlet-class>HomepageServlet</servlet-class>
+	
+	</servlet>
+	
+	<servlet-mapping>
+		<url-pattern>/home</url-pattern>
+		<servlet-name>HomepageServlet</servlet-name>
+	
+	</servlet-mapping>
+	
+	 <filter>
+        <filter-name>ValidationFilter</filter-name>
+        <filter-class>ValidationFilter</filter-class>
+    </filter>
+	
+	<filter-mapping>
+        <filter-name>ValidationFilter</filter-name>
+        <url-pattern>/login</url-pattern>
+    </filter-mapping>
+    
+
+</web-app>
